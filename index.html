@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hCaptcha Test - Coded by @henrique-coder</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <style>
+      .message {
+        font-weight: bold;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .success-message {
+        color: #28a745;
+      }
+
+      .error-message {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container my-5">
+      <h1 class="text-center">hCaptcha Test</h1>
+      <p class="text-center text-muted">This page is designed to help users test and understand hCaptcha functionality.</p>
+      <div class="d-flex justify-content-center mt-4">
+        <div class="h-captcha" data-sitekey="51b849a2-de6c-4598-9874-e2824fe4de1e"></div>
+      </div>
+      <div id="captcha-message" class="message"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function onSuccess() {
+        const messageDiv = document.getElementById('captcha-message');
+        messageDiv.textContent = 'Verification successful!';
+        messageDiv.className = 'message success-message';
+      }
+
+      function onError() {
+        const messageDiv = document.getElementById('captcha-message');
+        messageDiv.textContent = 'Verification failed. Please try again.';
+        messageDiv.className = 'message error-message';
+      }
+    </script>
+  </body>
+</html>
